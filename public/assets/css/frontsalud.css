@@ -105,6 +105,7 @@ a:hover {
     border: 1px solid rgba(11, 55, 125, 0.1);
     border-radius: 18px;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+    will-change: transform;
     height: 100%;
 }
 .card-servicio:hover {
