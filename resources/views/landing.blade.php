@@ -23,8 +23,8 @@
 </head>
 
 @php
-    $telefono = '(809) 000-0000';
-    $whatsapp = '18090000000';
+    $telefono = '(849) 581-2991';
+    $whatsapp = '18495812991';
     $correo = 'info@frontsalud.com';
     $direccion = 'C/ Romana - San Pedro, Plaza Bonita, 1er Nivel, Local 01, Villa Hermosa, La Romana, República Dominicana';
     $horario = 'Lunes a viernes: 8:00 a.m. – 5:00 p.m. (horario de referencia, sujeto a confirmación)';
