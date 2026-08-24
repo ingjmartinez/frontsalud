@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Front Salud - Centro de Diagnóstico y Laboratorio. Página web en construcción."
+    >
+
+    <title>Front Salud | Próximamente</title>
+
+    <style>
+        :root {
+            --azul: #0b377d;
+            --azul-claro: #1976d2;
+            --verde: #28a745;
+            --verde-claro: #eaf8ed;
+            --blanco: #ffffff;
+            --gris: #66788a;
+            --fondo: #f4f9fd;
+            --texto: #18324f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--texto);
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(25, 118, 210, 0.18),
+                    transparent 34%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(40, 167, 69, 0.18),
+                    transparent 34%
+                ),
+                var(--fondo);
+        }
+
+        .pagina {
+            min-height: 100vh;
+            padding: 35px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contenedor {
+            width: min(1050px, 100%);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(11, 55, 125, 0.10);
+            border-radius: 28px;
+            box-shadow: 0 25px 70px rgba(11, 55, 125, 0.16);
+        }
+
+        .barra-superior {
+            height: 8px;
+            background: linear-gradient(
+                90deg,
+                var(--azul),
+                var(--azul-claro),
+                var(--verde)
+            );
+        }
+
+        .contenido {
+            padding: clamp(35px, 7vw, 75px);
+        }
+
+        .marca {
+            text-align: center;
+        }
+
+        .subtitulo-logo {
+            margin-bottom: 12px;
+            color: var(--azul);
+            font-size: clamp(13px, 2vw, 18px);
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .front,
+        .salud {
+            display: block;
+            font-weight: 900;
+            line-height: 0.87;
+            letter-spacing: -4px;
+        }
+
+        .front {
+            color: var(--azul);
+            font-size: clamp(65px, 14vw, 135px);
+        }
+
+        .salud {
+            margin-top: 15px;
+            color: var(--verde);
+            font-size: clamp(65px, 14vw, 135px);
+        }
+
+        .linea-corazon {
+            max-width: 390px;
+            margin: 28px auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .linea-corazon::before,
+        .linea-corazon::after {
+            content: "";
+            flex: 1;
+            height: 3px;
+            background: var(--azul);
+        }
+
+        .corazon {
+            margin: 0 18px;
+            color: var(--verde);
+            font-size: 48px;
+            line-height: 1;
+            animation: latido 1.5s infinite;
+        }
+
+        .fundacion {
+            color: var(--azul);
+            font-size: clamp(13px, 2vw, 18px);
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .estado {
+            width: fit-content;
+            margin: 45px auto 20px;
+            padding: 10px 17px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #16822b;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: var(--verde-claro);
+            border: 1px solid rgba(40, 167, 69, 0.20);
+            border-radius: 999px;
+        }
+
+        .estado-punto {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--verde);
+            animation: pulso 1.8s infinite;
+        }
+
+        .mensaje {
+            max-width: 770px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mensaje h1 {
+            color: var(--azul);
+            font-size: clamp(34px, 6vw, 60px);
+            line-height: 1.08;
+        }
+
+        .mensaje h1 span {
+            color: var(--verde);
+        }
+
+        .mensaje p {
+            max-width: 680px;
+            margin: 20px auto 0;
+            color: var(--gris);
+            font-size: clamp(16px, 2vw, 19px);
+            line-height: 1.7;
+        }
+
+        .titulo-servicios {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .titulo-servicios small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--verde);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .titulo-servicios h2 {
+            color: var(--azul);
+            font-size: clamp(25px, 4vw, 38px);
+        }
+
+        .titulo-servicios h2 span {
+            color: var(--verde);
+        }
+
+        .servicios {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 17px;
+        }
+
+        .servicio {
+            padding: 26px 18px;
+            text-align: center;
+            background: var(--blanco);
+            border: 1px solid rgba(11, 55, 125, 0.09);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(11, 55, 125, 0.09);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .servicio:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 22px 42px rgba(11, 55, 125, 0.15);
+        }
+
+        .icono {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--verde);
+            font-size: 31px;
+            background: linear-gradient(135deg, #edf6ff, #eaf9ed);
+            border-radius: 50%;
+        }
+
+        .servicio h3 {
+            min-height: 48px;
+            color: var(--azul);
+            font-size: 17px;
+            line-height: 1.35;
+        }
+
+        .servicio p {
+            margin-top: 10px;
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .aviso {
+            margin-top: 35px;
+            padding: 22px;
+            color: var(--blanco);
+            text-align: center;
+            background: linear-gradient(
+                110deg,
+                var(--azul),
+                var(--azul-claro),
+                var(--verde)
+            );
+            border-radius: 18px;
+            box-shadow: 0 16px 35px rgba(11, 55, 125, 0.18);
+        }
+
+        .aviso strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: clamp(20px, 3vw, 27px);
+        }
+
+        .aviso p {
+            color: rgba(255, 255, 255, 0.87);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        footer {
+            padding: 21px;
+            color: #7a8b9c;
+            font-size: 14px;
+            text-align: center;
+            border-top: 1px solid rgba(11, 55, 125, 0.08);
+        }
+
+        @keyframes latido {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.16);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.10);
+            }
+        }
+
+        @keyframes pulso {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.45);
+            }
+
+            70% {
+                box-shadow: 0 0 0 9px rgba(40, 167, 69, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .servicios {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .pagina {
+                padding: 14px;
+            }
+
+            .contenedor {
+                border-radius: 20px;
+            }
+
+            .contenido {
+                padding: 36px 20px;
+            }
+
+            .subtitulo-logo,
+            .fundacion {
+                letter-spacing: 2px;
+            }
+
+            .front,
+            .salud {
+                letter-spacing: -2px;
+            }
+
+            .servicios {
+                grid-template-columns: 1fr;
+            }
+
+            .servicio h3 {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="pagina">
+
+        <section class="contenedor">
+
+            <div class="barra-superior"></div>
+
+            <div class="contenido">
+
+                <header class="marca">
+
+                    <p class="subtitulo-logo">
+                        Centro de Diagnóstico y Laboratorio
+                    </p>
+
+                    <span class="front">FRONT</span>
+                    <span class="salud">SALUD</span>
+
+                    <div class="linea-corazon">
+                        <span class="corazon">♥</span>
+                    </div>
+
+                    <p class="fundacion">
+                        Fundación Valle de Hebrón
+                    </p>
+
+                </header>
+
+                <section class="mensaje">
+
+                    <div class="estado">
+                        <span class="estado-punto"></span>
+                        Página web en construcción
+                    </div>
+
+                    <h1>
+                        Muy pronto estaremos <span>en línea</span>
+                    </h1>
+
+                    <p>
+                        Estamos preparando nuestra nueva página web para ofrecerte
+                        información clara, acceso rápido a nuestros servicios y una
+                        experiencia digital moderna, segura y cercana.
+                    </p>
+
+                </section>
+
+                <section aria-labelledby="titulo-servicios">
+
+                    <div class="titulo-servicios">
+
+                        <small>Nuestra cartera de servicios</small>
+
+                        <h2 id="titulo-servicios">
+                            Cuidado integral para <span>tu salud</span>
+                        </h2>
+
+                    </div>
+
+                    <div class="servicios">
+
+                        <article class="servicio">
+
+                            <div class="icono">✚</div>
+
+                            <h3>Consultas médicas especializadas</h3>
+
+                            <p>
+                                Medicina interna, medicina familiar, cardiología,
+                                ginecología, obstetricia y terapia familiar.
+                            </p>
+
+                        </article>
+
+                        <article class="servicio">
+
+                            <div class="icono">⚗</div>
+
+                            <h3>Laboratorio clínico</h3>
+
+                            <p>
+                                Análisis clínicos para apoyar diagnósticos
+                                confiables, seguros y oportunos.
+                            </p>
+
+                        </article>
+
+                        <article class="servicio">
+
+                            <div class="icono">◉</div>
+
+                            <h3>Servicio de imagenología</h3>
+
+                            <p>
+                                Ultrasonografía para realizar estudios diagnósticos
+                                con seguridad y calidad.
+                            </p>
+
+                        </article>
+
+                        <article class="servicio">
+
+                            <div class="icono">♥</div>
+
+                            <h3>Diagnóstico cardiovascular</h3>
+
+                            <p>
+                                Electrocardiograma, Holter, MAPA y ecocardiograma
+                                para cuidar de tu corazón.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <section class="aviso">
+
+                    <strong>Tu salud es nuestra prioridad</strong>
+
+                    <p>
+                        Pronto podrás conocer todos nuestros servicios y novedades
+                        directamente desde nuestra página web.
+                    </p>
+
+                </section>
+
+            </div>
+
+            <footer>
+                © <span id="anio"></span> Front Salud · Fundación Valle de Hebrón
+            </footer>
+
+        </section>
+
+    </main>
+
+    <script>
+        document.getElementById("anio").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
