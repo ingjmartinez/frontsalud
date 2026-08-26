@@ -94,6 +94,29 @@ a:hover {
         var(--vz-body-bg);
 }
 
+.hero-shape-svg {
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-shape-svg svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 991.98px) {
+    .hero-section .container {
+        padding-bottom: 3.5rem;
+    }
+}
+
 .badge.bg-verde-claro {
     background-color: var(--fs-verde-claro) !important;
     color: #16822b !important;

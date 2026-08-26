@@ -116,7 +116,7 @@
                             <h1 class="display-6 fw-semibold mb-3 lh-base">Cuidado integral para <span class="text-success">tu salud</span>, con calidad y calidez humana</h1>
                             <p class="lead text-muted lh-base">Front Salud, de la Fundación Valle de Hebrón, ofrece consulta médica especializada, laboratorio clínico, imagenología y diagnóstico cardiovascular en un solo lugar.</p>
 
-                            <div class="d-flex gap-2 mt-4">
+                            <div class="d-flex d-lg-none gap-2 mt-4">
                                 <a href="#contacto" class="btn btn-primary">Agendar cita <i class="ri-arrow-right-line align-middle ms-1"></i></a>
                                 <a href="#servicios" class="btn btn-outline-primary">Ver servicios <i class="ri-eye-line align-middle ms-1"></i></a>
                             </div>
