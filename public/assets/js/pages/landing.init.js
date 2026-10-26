@@ -1,1 +1,46 @@
-function windowScroll(){var e=document.getElementById("navbar");e&&(50<=document.body.scrollTop||50<=document.documentElement.scrollTop?e.classList.add("is-sticky"):e.classList.remove("is-sticky"))}window.addEventListener("scroll",function(e){e.preventDefault(),windowScroll()});const navLinks=document.querySelectorAll(".nav-item"),menuToggle=document.getElementById("navbarSupportedContent");if(navLinks&&menuToggle){let n="";window.addEventListener("load",function(){window.dispatchEvent(new Event("resize"))}),window.addEventListener("resize",function(){var e=document.documentElement.clientWidth;n=new bootstrap.Collapse(menuToggle,{toggle:!1}),e<980?Array.from(navLinks).forEach(e=>{e.addEventListener("click",()=>{toggleMenu()})}):toggleMenu()})}function toggleMenu(){document.documentElement.clientWidth<980?bsCollapse.toggle():bsCollapse=""}var swiper=new Swiper(".client-review-swiper",{loop:!1,autoplay:{delay:2500,disableOnInteraction:!1},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{clickable:!0,el:".swiper-pagination"}});function counter(){var e=document.querySelectorAll(".counter-value");function l(e){return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}!e||e&&Array.from(e).forEach(function(i){!function e(){var n=+i.getAttribute("data-target"),t=+i.innerText,o=n/250;o<1&&(o=1),t<n?(i.innerText=(t+o).toFixed(0),setTimeout(e,1)):i.innerText=l(n),l(i.innerText)}()})}counter();
+function updateNavbar() {
+    const navbar = document.getElementById('navbar');
+
+    if (navbar) {
+        navbar.classList.toggle('is-sticky', window.scrollY >= 50);
+    }
+}
+
+window.addEventListener('scroll', updateNavbar, { passive: true });
+updateNavbar();
+
+const mobileMenu = document.getElementById('navbarSupportedContent');
+
+if (mobileMenu) {
+    mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', () => {
+            if (window.matchMedia('(max-width: 991.98px)').matches && mobileMenu.classList.contains('show')) {
+                bootstrap.Collapse.getOrCreateInstance(mobileMenu).hide();
+            }
+        });
+    });
+}
+
+const reviewSlider = document.querySelector('.client-review-swiper');
+
+if (reviewSlider) {
+    new Swiper(reviewSlider, {
+        loop: false,
+        autoplay: { delay: 2500, disableOnInteraction: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { clickable: true, el: '.swiper-pagination' },
+    });
+}
+
+const contactForm = document.querySelector('form[action$="/contacto"]');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando…';
+        }
+    });
+}

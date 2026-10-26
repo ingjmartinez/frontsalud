@@ -13,7 +13,6 @@
 
     <link href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <script src="{{ asset('assets/js/layout.js') }}"></script>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
@@ -76,7 +75,7 @@
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="#hero">
-                    <img src="{{ asset('assets/images/landing/frontsalud/logo-front-salud.png') }}" alt="Front Salud" height="48">
+                    <img src="{{ asset('assets/images/landing/frontsalud/logo2.jpeg') }}" alt="Front Salud" height="48">
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="mdi mdi-menu"></i>
@@ -124,7 +123,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="mt-4 mt-lg-0 text-center">
-                            <img src="{{ asset('assets/images/landing/frontsalud/hero-equipo-ct.jpg') }}" alt="Equipo de Front Salud junto a equipo de tomografía" class="img-fluid rounded-4 shadow-lg">
+                            <img src="{{ asset('assets/images/landing/frontsalud/hero-equipo-ct.jpg') }}" alt="Equipo de Front Salud junto a equipo de tomografía" class="img-fluid rounded-4 shadow-lg" fetchpriority="high">
                         </div>
                     </div>
                 </div>
@@ -185,7 +184,7 @@
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-6 col-sm-7 mx-auto">
                         <div>
-                            <img src="{{ asset('assets/images/landing/frontsalud/lectura-estudios.jpg') }}" alt="Equipo de Front Salud analizando estudios de imagen" class="img-fluid mx-auto rounded-4 shadow-sm">
+                            <img src="{{ asset('assets/images/landing/frontsalud/lectura-estudios.jpg') }}" alt="Equipo de Front Salud analizando estudios de imagen" class="img-fluid mx-auto rounded-4 shadow-sm" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -266,7 +265,7 @@
                     <!-- end col -->
                     <div class="col-lg-6 col-sm-7 col-10 ms-auto order-1 order-lg-2">
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/landing/frontsalud/logo-front-salud.png') }}" alt="Front Salud" class="img-fluid" style="max-width: 260px;">
+                            <img src="{{ asset('assets/images/landing/frontsalud/logo2.jpeg') }}" alt="Front Salud" class="img-fluid" style="max-width: 260px;">
                         </div>
                     </div>
                 </div>
@@ -275,7 +274,7 @@
                 <div class="row align-items-center mt-5 pt-lg-5 gy-4">
                     <div class="col-lg-6 col-sm-7 col-10 mx-auto">
                         <div>
-                            <img src="{{ asset('assets/images/landing/frontsalud/equipo-tomografo.jpg') }}" alt="Tecnología de diagnóstico por imágenes en Front Salud" class="img-fluid rounded-4 shadow-sm">
+                            <img src="{{ asset('assets/images/landing/frontsalud/equipo-tomografo.jpg') }}" alt="Tecnología de diagnóstico por imágenes en Front Salud" class="img-fluid rounded-4 shadow-sm" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -347,10 +346,7 @@
                                             <h5 class="mb-0">{{ $i + 1 }}. {{ $servicio['titulo'] }}</h5>
                                         </div>
                                     </div>
-                                    <p class="text-muted ff-secondary mb-3">{{ $servicio['detalle'] }}</p>
-                                    <a href="https://wa.me/{{ $whatsapp }}?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%3A%20{{ urlencode($servicio['titulo']) }}" target="_blank" rel="noopener" class="fs-13 fw-medium">
-                                        Consultar disponibilidad <i class="ri-arrow-right-s-line align-bottom"></i>
-                                    </a>
+                                    <p class="text-muted ff-secondary mb-0">{{ $servicio['detalle'] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -665,7 +661,7 @@
                             <div class="card">
                                 <div class="card-body text-center p-4">
                                     <div class="avatar-xl mx-auto mb-4 position-relative">
-                                        <img src="{{ asset($miembro['foto']) }}" alt="{{ $miembro['nombre'] }}" class="img-fluid rounded-circle">
+                                        <img src="{{ asset($miembro['foto']) }}" alt="{{ $miembro['nombre'] }}" class="img-fluid rounded-circle" loading="lazy" decoding="async">
                                     </div>
                                     <h5 class="mb-1 text-body">{{ $miembro['nombre'] }}</h5>
                                     <p class="text-muted mb-0 ff-secondary fs-13">{{ $miembro['rol'] }}</p>
@@ -821,7 +817,7 @@
                     <div class="col-lg-4 mt-4">
                         <div>
                             <div class="logo-badge">
-                                <img src="{{ asset('assets/images/landing/frontsalud/logo-front-salud.png') }}" alt="Front Salud" height="44">
+                                <img src="{{ asset('assets/images/landing/frontsalud/logo2.jpeg') }}" alt="Front Salud" height="44">
                             </div>
                             <div class="mt-4 fs-13">
                                 <p class="text-white-50">Centro de Diagnóstico y Laboratorio</p>
@@ -885,11 +881,6 @@
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
 
     <!--Swiper slider js-->
     <script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
