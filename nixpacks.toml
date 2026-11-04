@@ -1,0 +1,12 @@
+[variables]
+NIXPACKS_NODE_VERSION = "22"
+
+[phases.build]
+cmds = [
+  "...",
+  "mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache",
+  "chmod -R 777 storage bootstrap/cache"
+]
+
+[start]
+cmd = "mkdir -p /app/bootstrap/cache && chmod -R 777 /app/storage /app/bootstrap/cache && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf -d upload_max_filesize=10M -d post_max_size=12M & nginx -c /nginx.conf)"
