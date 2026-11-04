@@ -75,7 +75,7 @@
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="#hero">
-                    <img src="{{ asset('assets/images/landing/frontsalud/logo2.jpeg') }}" alt="Front Salud" height="48">
+                    <img src="{{ asset('assets/images/landing/frontsalud/logo2.png') }}" alt="Front Salud" height="48">
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="mdi mdi-menu"></i>
@@ -265,7 +265,7 @@
                     <!-- end col -->
                     <div class="col-lg-6 col-sm-7 col-10 ms-auto order-1 order-lg-2">
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/landing/frontsalud/logo2.jpeg') }}" alt="Front Salud" class="img-fluid" style="max-width: 260px;">
+                            <img src="{{ asset('assets/images/landing/frontsalud/logo2.png') }}" alt="Front Salud" class="img-fluid" style="max-width: 260px;">
                         </div>
                     </div>
                 </div>
@@ -817,7 +817,7 @@
                     <div class="col-lg-4 mt-4">
                         <div>
                             <div class="logo-badge">
-                                <img src="{{ asset('assets/images/landing/frontsalud/logo2.jpeg') }}" alt="Front Salud" height="44">
+                                <img src="{{ asset('assets/images/landing/frontsalud/logo2.png') }}" alt="Front Salud" height="44">
                             </div>
                             <div class="mt-4 fs-13">
                                 <p class="text-white-50">Centro de Diagnóstico y Laboratorio</p>
