@@ -86,7 +86,6 @@
                         <li class="nav-item"><a class="nav-link active" href="#hero">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#cartera">Cartera de servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
@@ -148,9 +147,10 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h5 class="fs-12 text-uppercase text-success fw-semibold">Nuestra cartera de servicios</h5>
-                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">Cuidado integral para tu salud</h1>
-                            <p class="text-muted">Servicios de salud habilitados por el Ministerio de Salud Pública de la República Dominicana, brindados por un equipo humano y certificado.</p>
+                            <h5 class="fs-12 text-uppercase text-success fw-semibold">Cuidado integral para tu salud</h5>
+                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">Nuestros servicios de salud</h1>
+                            <p class="text-muted">Servicios de salud brindados por un equipo humano y certificado.</p>
+                            <p class="text-muted ff-secondary">Cartera de servicios certificada por la Dirección de Habilitación de Servicios y Establecimientos de Salud (DHSES) del Ministerio de Salud Pública de la República Dominicana.</p>
                         </div>
                     </div>
                     <!-- end col -->
@@ -314,49 +314,6 @@
             <!-- end container -->
         </section>
         <!-- end misión / visión -->
-
-        <!-- start cartera de servicios -->
-        <section class="section bg-light" id="cartera">
-            <div class="bg-overlay bg-overlay-pattern"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="text-center mb-4">
-                            <h3 class="mb-3 fw-semibold">Cartera de Servicios Aprobada</h3>
-                            <p class="text-muted mb-3 ff-secondary">Certificada por la Dirección de Habilitación de Servicios y Establecimientos de Salud (DHSES) del Ministerio de Salud Pública de la República Dominicana.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <div class="row g-4">
-                    @foreach ($servicios as $i => $servicio)
-                        <div class="col-lg-6">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="flex-shrink-0 me-3">
-                                            <div class="avatar-sm icon-effect">
-                                                <div class="avatar-title bg-brand-soft rounded-circle">
-                                                    <i class="{{ $servicio['icono'] }} fs-24"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h5 class="mb-0">{{ $i + 1 }}. {{ $servicio['titulo'] }}</h5>
-                                        </div>
-                                    </div>
-                                    <p class="text-muted ff-secondary mb-0">{{ $servicio['detalle'] }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end cartera de servicios -->
 
         <!-- start faqs -->
         <section class="section" id="preguntas-frecuentes">
@@ -834,7 +791,6 @@
                                     <ul class="list-unstyled ff-secondary footer-list">
                                         <li><a href="#servicios">Servicios</a></li>
                                         <li><a href="#nosotros">Nosotros</a></li>
-                                        <li><a href="#cartera">Cartera de servicios</a></li>
                                         <li><a href="#equipo">Equipo</a></li>
                                     </ul>
                                 </div>
