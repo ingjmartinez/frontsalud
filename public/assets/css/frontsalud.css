@@ -10,6 +10,10 @@ body {
     font-family: "Instrument Sans", Arial, Helvetica, sans-serif;
 }
 
+.landing section[id] {
+    scroll-margin-top: 96px;
+}
+
 a {
     color: var(--fs-azul);
 }
@@ -68,8 +72,12 @@ a:hover {
     color: #fff !important;
 }
 
-.navbar-landing .nav-link.active,
-.navbar-landing .nav-link:hover {
+.navbar-landing .nav-link:not(.active):hover,
+.navbar-landing .nav-link:not(.active):focus {
+    color: var(--vz-body-color) !important;
+}
+
+.navbar-landing .nav-link.active {
     color: var(--fs-verde) !important;
 }
 
@@ -89,32 +97,33 @@ a:hover {
 }
 
 .hero-section {
+    --hero-shape-height: clamp(32px, 4vw, 64px);
+    position: relative;
     background: radial-gradient(circle at top left, rgba(25, 118, 210, 0.12), transparent 40%),
         radial-gradient(circle at bottom right, rgba(40, 167, 69, 0.14), transparent 40%),
         var(--vz-body-bg);
 }
 
 .hero-shape-svg {
-    z-index: 2;
+    height: var(--hero-shape-height);
+    background: var(--vz-card-bg);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 1;
     pointer-events: none;
 }
 
 .hero-shape-svg svg {
-    display: block;
-    width: 100%;
-    height: auto;
+    display: none;
 }
 
 .hero-section .container {
     position: relative;
-    z-index: 1;
-    padding-bottom: 2rem;
+    z-index: 2;
+    padding-bottom: calc(var(--hero-shape-height) + 1rem);
 }
 
-@media (max-width: 991.98px) {
-    .hero-section .container {
-        padding-bottom: 3.5rem;
-    }
+#servicios {
+    padding-top: 2rem;
 }
 
 .badge.bg-verde-claro {
@@ -122,6 +131,12 @@ a:hover {
     color: #16822b !important;
     font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+.servicio-carrusel-imagen {
+    height: clamp(240px, 48vw, 520px);
+    object-fit: contain;
+    padding-bottom: 36px;
 }
 
 .card-servicio {

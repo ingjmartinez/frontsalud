@@ -52,6 +52,9 @@
     ];
 
     $equipo = [
+        ['nombre' => 'Médico de muestra', 'rol' => 'Equipo médico', 'foto' => 'fotomedicos/medico1.jpg'],
+        ['nombre' => 'Médico de muestra 2', 'rol' => 'Equipo médico', 'foto' => 'fotomedicos/medico2.jpg'],
+        ['nombre' => 'Médico de muestra 3', 'rol' => 'Equipo médico', 'foto' => 'fotomedicos/medico3.jpg'],
         ['nombre' => 'Dr. Froilán Valdez Lorenzo', 'rol' => 'Director Médico · Sonografía y Terapia Familiar', 'foto' => 'assets/images/users/avatar-2.jpg'],
         ['nombre' => 'Lic. Ronasis Reyes Ramírez Ogando', 'rol' => 'Bioanálisis', 'foto' => 'assets/images/users/avatar-10.jpg'],
         ['nombre' => 'Dr. Miguel Antonio Reyes Carrasco', 'rol' => 'Medicina Interna · Cardiología', 'foto' => 'assets/images/users/avatar-3.jpg'],
@@ -69,7 +72,7 @@
     ];
 @endphp
 
-<body data-bs-spy="scroll" data-bs-target="#navbar-example">
+<body data-bs-spy="scroll" data-bs-target="#navbar-example" data-bs-offset="120">
 
     <div class="layout-wrapper landing">
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
@@ -183,8 +186,27 @@
             <div class="container">
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-6 col-sm-7 mx-auto">
-                        <div>
-                            <img src="{{ asset('assets/images/landing/frontsalud/lectura-estudios.jpg') }}" alt="Equipo de Front Salud analizando estudios de imagen" class="img-fluid mx-auto rounded-4 shadow-sm" loading="lazy" decoding="async">
+                        <div id="nosotros-carrusel" class="carousel carousel-dark slide rounded-3 overflow-hidden bg-light" data-bs-ride="carousel" data-bs-interval="4000" role="region" aria-label="Conoce Front Salud">
+                            <div class="carousel-indicators">
+                                @foreach (range(1, 7) as $numero)
+                                    <button type="button" data-bs-target="#nosotros-carrusel" data-bs-slide-to="{{ $numero - 1 }}" class="{{ $loop->first ? 'active' : '' }}" @if ($loop->first) aria-current="true" @endif aria-label="Ver imagen {{ $numero }}"></button>
+                                @endforeach
+                            </div>
+                            <div class="carousel-inner">
+                                @foreach (range(1, 7) as $numero)
+                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                        <img src="{{ asset('assets/images/landing/frontsalud/servicio-'.$numero.'.jpg') }}" class="d-block w-100 servicio-carrusel-imagen" alt="Front Salud, imagen {{ $numero }}" loading="lazy" decoding="async">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#nosotros-carrusel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Imagen anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#nosotros-carrusel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Imagen siguiente</span>
+                            </button>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -260,6 +282,9 @@
                             <h5 class="fs-12 text-uppercase text-success">Misión</h5>
                             <h4 class="mb-3">Un centro diagnóstico plenamente humano</h4>
                             <p class="mb-4 ff-secondary">Buscamos ofrecer servicios de salud y educación. Servir a nuestro mundo siendo un centro diagnóstico y laboratorio plenamente humano.</p>
+                            <h5 class="fs-12 text-uppercase text-success">Visión</h5>
+                            <h4 class="mb-3">Liderazgo en diagnóstico por imágenes</h4>
+                            <p class="mb-4">Transformar los diagnósticos por imágenes con equipos de alta tecnología y expandirnos con nuestro liderazgo global para servir mejor a los pacientes.</p>
                         </div>
                     </div>
                     <!-- end col -->
@@ -268,23 +293,6 @@
                             <img src="{{ asset('assets/images/landing/frontsalud/logo2.png') }}" alt="Front Salud" class="img-fluid" style="max-width: 260px;">
                         </div>
                     </div>
-                </div>
-                <!-- end row -->
-
-                <div class="row align-items-center mt-5 pt-lg-5 gy-4">
-                    <div class="col-lg-6 col-sm-7 col-10 mx-auto">
-                        <div>
-                            <img src="{{ asset('assets/images/landing/frontsalud/equipo-tomografo.jpg') }}" alt="Tecnología de diagnóstico por imágenes en Front Salud" class="img-fluid rounded-4 shadow-sm" loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="text-muted ps-lg-5">
-                            <h5 class="fs-12 text-uppercase text-success">Visión</h5>
-                            <h4 class="mb-3">Liderazgo en diagnóstico por imágenes</h4>
-                            <p class="mb-4">Transformar los diagnósticos por imágenes con equipos de alta tecnología y expandirnos con nuestro liderazgo global para servir mejor a los pacientes.</p>
-                        </div>
-                    </div>
-                    <!-- end col -->
                 </div>
                 <!-- end row -->
 
@@ -618,7 +626,7 @@
                             <div class="card">
                                 <div class="card-body text-center p-4">
                                     <div class="avatar-xl mx-auto mb-4 position-relative">
-                                        <img src="{{ asset($miembro['foto']) }}" alt="{{ $miembro['nombre'] }}" class="img-fluid rounded-circle" loading="lazy" decoding="async">
+                                        <img src="{{ asset($miembro['foto']) }}" alt="{{ $miembro['nombre'] }}" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                                     </div>
                                     <h5 class="mb-1 text-body">{{ $miembro['nombre'] }}</h5>
                                     <p class="text-muted mb-0 ff-secondary fs-13">{{ $miembro['rol'] }}</p>
